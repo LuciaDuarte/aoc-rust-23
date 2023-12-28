@@ -1,8 +1,8 @@
 use regex::Regex;
 
 fn main() {
-    let input = include_str!("input1.txt");
-    let output = part1(input);
+    let input = include_str!("input.txt");
+    let output = solution(input);
     dbg!(output);
 }
 
@@ -12,7 +12,7 @@ struct SpecialChar {
     positions: Vec<i32>,
 }
 
-fn part1(input: &str) -> i32 {
+fn solution(input: &str) -> i32 {
     let lines: Vec<_> = input.lines().collect();
 
     let mut special_chars: Vec<SpecialChar> = Vec::new();
@@ -75,7 +75,7 @@ mod tests {
     use super::*;
     #[test]
     fn it_works() {
-        let result = part1(
+        let result = solution(
             "467..114..
             ...*......
             ..35..598.

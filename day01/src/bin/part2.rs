@@ -1,8 +1,8 @@
 use std::i32;
 
 fn main() {
-    let input = include_str!("input1.txt");
-    let output = part2(input);
+    let input = include_str!("input.txt");
+    let output = solution(input);
     dbg!(output);
 }
 
@@ -12,7 +12,7 @@ struct CalibrationIndex {
     index: usize,
 }
 
-fn part2(input: &str) -> String {
+fn solution(input: &str) -> i32 {
     let input = input.lines().into_iter();
 
     let mut sum: i32 = 0;
@@ -56,7 +56,7 @@ fn part2(input: &str) -> String {
             + &calibration_vec[calibration_vec.len() - 1].value.to_string();
         sum = sum + calibration_value.parse::<i32>().unwrap();
     }
-    sum.to_string()
+    sum
 }
 
 fn validate_digits(val: &str) -> char {
@@ -80,7 +80,7 @@ mod tests {
     #[test]
 
     fn it_works() {
-        let result = part2(
+        let result = solution(
             "two1nine
             eightwothree
             abcone2threexyz
@@ -90,6 +90,6 @@ mod tests {
             7pqrstsixteen
             sevendxbninefour2fourclmln",
         );
-        assert_eq!(result, "355")
+        assert_eq!(result, 355)
     }
 }

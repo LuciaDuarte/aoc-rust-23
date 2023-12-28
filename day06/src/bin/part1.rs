@@ -1,6 +1,6 @@
 fn main() {
-    let input = include_str!("input1.txt");
-    let output = part1(input);
+    let input = include_str!("input.txt");
+    let output = solution(input);
     dbg!(output);
 }
 
@@ -10,7 +10,7 @@ struct RaceRecords {
     distance: u32,
 }
 
-fn part1(input: &str) -> u32 {
+fn solution(input: &str) -> u32 {
     let lines: Vec<_> = input.lines().collect();
 
     let race_records: Vec<RaceRecords> = get_race_records(lines);
@@ -63,7 +63,7 @@ mod tests {
     use super::*;
     #[test]
     fn it_works() {
-        let result = part1(
+        let result = solution(
             "Time:      7  15   30
             Distance:  9  40  200",
         );

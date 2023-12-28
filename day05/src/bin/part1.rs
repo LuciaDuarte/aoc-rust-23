@@ -1,6 +1,6 @@
 fn main() {
-    let input = include_str!("input1.txt");
-    let output = part1(input);
+    let input = include_str!("input.txt");
+    let output = solution(input);
     dbg!(output);
 }
 
@@ -10,7 +10,7 @@ struct SeedMap {
     destination: i128,
 }
 
-fn part1(input: &str) -> i128 {
+fn solution(input: &str) -> i128 {
     // splitting by : to get the groups of maps
     let lines: Vec<_> = input.split(":").collect();
 
@@ -97,7 +97,7 @@ mod tests {
     #[test]
     fn it_works() {
         // destination, source, range
-        let result = part1(
+        let result = solution(
             "seeds: 79 14 55 13
 
             seed-to-soil map:

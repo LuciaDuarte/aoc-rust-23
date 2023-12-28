@@ -1,10 +1,10 @@
 fn main() {
-    let input = include_str!("input1.txt");
-    let output = part1(input);
+    let input = include_str!("input.txt");
+    let output = solution(input);
     dbg!(output);
 }
 
-fn part1(input: &str) -> i32 {
+fn solution(input: &str) -> i32 {
     let lines: Vec<_> = input.lines().collect();
 
     let mut values: Vec<i32> = Vec::new();
@@ -45,7 +45,7 @@ mod tests {
     use super::*;
     #[test]
     fn it_works() {
-        let result = part1(
+        let result = solution(
             "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
             Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
             Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
