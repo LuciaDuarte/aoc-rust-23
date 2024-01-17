@@ -34,7 +34,6 @@ fn solution(input: &str) -> i64 {
 
     let galaxies_coord: Vec<Galaxy> = find_galaxies(&universe);
 
-    // println!("expanded:\n{:?}", expanded);
     let shortest_distances = find_shortest_path(&galaxies_coord, empty_rows, empty_cols);
 
     let sum: i64 = shortest_distances
@@ -137,12 +136,14 @@ fn calculate_shortest_distance(
 ) -> u32 {
     let mut x = galaxy.coordinates.x.abs_diff(other_galaxy.coordinates.x);
     let mut y = galaxy.coordinates.y.abs_diff(other_galaxy.coordinates.y);
+    println!("x:{:?} y:{:?}", x, y);
 
     for empty_row in empty_rows {
         if other_galaxy.coordinates.y.min(galaxy.coordinates.y) < *empty_row as i32
             && other_galaxy.coordinates.y.max(galaxy.coordinates.y) > *empty_row as i32
         {
-            y += 1;
+            // println!("empty row:\n{:?}", empty_row);
+            y += 1000000 - 1;
         }
     }
 
@@ -150,7 +151,7 @@ fn calculate_shortest_distance(
         if other_galaxy.coordinates.x.min(galaxy.coordinates.x) < *empty_col as i32
             && other_galaxy.coordinates.x.max(galaxy.coordinates.x) > *empty_col as i32
         {
-            x += 1;
+            x += 1000000 - 1;
         }
     }
 
@@ -164,16 +165,16 @@ mod tests {
     fn it_works() {
         let result = solution(
             "...#......
-            .......#..
-            #.........
-            ..........
-            ......#...
-            .#........
-            .........#
-            ..........
-            .......#..
-            #...#.....",
+          .......#..
+          #.........
+          ..........
+          ......#...
+          .#........
+          .........#
+          ..........
+          .......#..
+          #...#.....",
         );
-        assert_eq!(result, 374);
+        assert_eq!(result, 1030);
     }
 }
